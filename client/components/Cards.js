@@ -1,9 +1,14 @@
 import React from 'react';
+// import App from '../client/App.js';
 
 const Cards = (props) => {
   return (
     <div className='cards'>
-      <ul>
+      <ul id='card'>
+        <ul>
+          <img src={props.searchResults.image_url} />
+        </ul>
+        <button onchange={props.Addfavorites} />
         <ul>
           <b>Name: </b>
           {props.searchResults.name}

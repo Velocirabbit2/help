@@ -12,6 +12,8 @@ const App = () => {
   const [threeOptions, setOptions] = useState([]);
   const [allFavorites, setFavorite] = useState([]);
 
+  // const [this.state, setState()] = useState(initial state)
+
   useEffect(() => {
     axios.get('http://localhost:3000/api/favorites').then((res) => {
       setFavorite(res.data);
@@ -24,15 +26,22 @@ const App = () => {
     });
   };
 
+  const addFavorites = (event) => {
+    setFavorite({
+      [event.target.id]: event.target.value,
+    });
+  };
+
   const handleSearchLocation = (newSearch) => {
     axios.post('http://localhost:3000/api/search', newSearch).then((res) => {
       setOptions(res.data);
     });
   };
 
+  //
+
   return (
     <div>
-      <h2>unbeatable</h2>
       <div>
         <form>
           <input
