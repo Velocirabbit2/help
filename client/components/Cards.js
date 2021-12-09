@@ -18,7 +18,7 @@ const Cards = (props) => {
         </ul>
         <ul>
           <b>Location: </b>
-          {props.searchResults.location.display_address[0]}, &nbsp;
+          {props.searchResults.location.display_address[0]},&nbsp;
           {props.searchResults.location.display_address[1]}
         </ul>
       </ul>

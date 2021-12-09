@@ -2,14 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { render } from 'react-dom';
 import axios from 'axios';
 
+import Favorites from './components/Favorites.js';
 import Board from './components/Board.js';
 
 const App = () => {
   const [addRestaurant, setNewRestaurant] = useState({
     location: '',
   });
-  const [allFavorites, setFavorite] = useState([]);
   const [threeOptions, setOptions] = useState([]);
+  const [allFavorites, setFavorite] = useState([]);
 
   useEffect(() => {
     axios.get('http://localhost:3000/api/favorites').then((res) => {
@@ -18,21 +19,16 @@ const App = () => {
   }, []);
 
   const onChangeHandler = (event) => {
-    event.preventDefault();
     setNewRestaurant({
       [event.target.id]: event.target.value,
     });
   };
 
   const handleSearchLocation = (newSearch) => {
-    console.log(
-      axios.post('http://localhost:3000/api/search', newSearch).then((res) => {
-        setOptions(res.data);
-      })
-    );
+    axios.post('http://localhost:3000/api/search', newSearch).then((res) => {
+      setOptions(res.data);
+    });
   };
-
-  console.log('three options array', threeOptions);
 
   return (
     <div>
@@ -57,8 +53,11 @@ const App = () => {
         </button>
       </div>
       <div>
-        <div className='board'>
+        <div className='searchResults'>
           <Board searchResults={threeOptions} />
+        </div>
+        <div className='favoritiesList'>
+          <Favorites />
         </div>
       </div>
     </div>

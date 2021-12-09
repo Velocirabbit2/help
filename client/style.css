@@ -1,7 +1,6 @@
 body {
-  color: #222222;
-  /* background-color: #f43939; */
-  background-color: #fff;
+  color: #fff;
+  background-color: #f43939;
   font-size: 14px;
   display: flex;
   justify-content: space-around;
@@ -19,11 +18,8 @@ h2 {
 }
 ul {
   width: 800px;
-  margin-left: -5%;
+  margin-left: -35px;
   margin-bottom: 10px;
-  columns: 2;
-  -webkit-columns: 2;
-  -moz-columns: 2;
 }
 form {
   display: inline;

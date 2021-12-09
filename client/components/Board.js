@@ -6,7 +6,7 @@ const Board = (props) => {
   return (
     <div className='board'>
       {props.searchResults.map((restaurant, key) => {
-        return <Cards searchResults={restaurant} />;
+        return <Cards key={key} searchResults={restaurant} />;
       })}
     </div>
   );
