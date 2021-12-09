@@ -1,29 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+
 body {
   color: #222222;
-  /* background-color: #f43939; */
-  background-color: #fff;
-  font-size: 14px;
+  background-image: url(https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80);
+  background-repeat: no-repeat;
   display: flex;
-  justify-content: space-around;
-  align-items: left;
+  flex-direction: column;
+  justify-content: top;
+  align-items: center;
+  font-size: 14px;
   margin-top: 5%;
   font-family: Arial;
+  text-align: center;
 }
 div {
+  display: absolute;
+  justify-content: center;
+  align-items: center;
   width: 800px;
   justify-content: center;
 }
+div.board {
+  display: absolute;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  max-width: 400px;
+
+  justify-content: center;
+}
+
 h2 {
-  color: #fff;
+  color: #222222;
   letter-spacing: 1px;
 }
 ul {
-  width: 800px;
-  margin-left: -5%;
+  display: absolute;
+  justify-content: center;
+  align-items: center;
+
+  width: 400px;
+  margin-left: -35px;
   margin-bottom: 10px;
-  columns: 2;
-  -webkit-columns: 2;
-  -moz-columns: 2;
+  margin: 20px;
+}
+img {
+  border: #222222;
+  border-width: 2px;
+  padding: 5px;
+  width: auto;
+  height: 150px;
+  align-items: center;
 }
 form {
   display: inline;
@@ -75,4 +102,18 @@ button:hover {
     7.6px 8px 12.4px -1.8px hsl(var(--shadow-color) / 0.05),
     11.5px 12px 18.7px -2.1px hsl(var(--shadow-color) / 0.05),
     16.9px 17.7px 27.5px -2.5px hsl(var(--shadow-color) / 0.05);
+}
+
+#card {
+  padding: 25px;
+  /* display: flex;
+  flex-direction: ; */
+  justify-content: center;
+  align-items: center;
+  background-color: #fcf4e8;
+  border-radius: 3%;
+}
+#title {
+  font-size: 150%;
+  font-family: 'Rock Salt', cursive;
 }

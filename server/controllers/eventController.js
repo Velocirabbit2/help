@@ -15,8 +15,9 @@ eventController.getRestaurants = async (req, res, next) => {
   await client
     .search({
       location: JSON.stringify(location),
-      sort_by: 'review_count',
+      sort_by: 'best_match',
       limit: 3,
+      open_now: true,
     })
     .then((data) => {
       res.locals.searchResults = data.jsonBody.businesses;
