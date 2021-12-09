@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const bodyParser = require('body-parser');
+// const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const app = express();
@@ -8,11 +8,13 @@ const PORT = 3000;
 
 const eventRouter = require('./routes/router.js');
 
+app.use(express());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
+
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: true }));
 
 // define the route handlers
 app.use('/api', eventRouter);
