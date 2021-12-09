@@ -1,4 +1,4 @@
-'use strict';
+// 'use strict';
 
 const mongoose = require('mongoose');
 const axios = require('axios');
@@ -10,24 +10,23 @@ const client = yelp.client(
 
 const eventController = {};
 
-eventController.getRestaurants = (req, res, next) => {
+eventController.getRestaurants = async (req, res, next) => {
   const { location } = req.body;
-  client
+  await client
     .search({
-      location: location,
+      location: JSON.stringify(location),
       sort_by: 'review_count',
       limit: 3,
     })
     .then((data) => {
-      // console.log(data.jsonBody.businesses);
-      res.locals.searchResult = data.jsonBody.businesses;
-      return next();
+      res.locals.searchResults = data.jsonBody.businesses;
+      next();
     })
     .catch((err) => {
       console.log(
         'ERROR in eventController.getRestaurants: Something went wrong with the API call'
       );
-      return next(err);
+      next(err);
     });
 };
 
@@ -47,7 +46,7 @@ eventController.getFavorites = (req, res, next) => {
 
 // post method using async/await
 eventController.postFavorite = async (req, res, next) => {
-  const { food_id, name, image_url, rating, price, location } = req.body;
+  const { id, name, image_url, rating, price, location } = req.body;
   const newFav = new Favorites({
     id: id,
     name: name,

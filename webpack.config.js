@@ -7,7 +7,7 @@ module.exports = {
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js',
   },
-  mode: 'development',
+  mode: 'production',
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, './client/index.html'),
@@ -29,6 +29,14 @@ module.exports = {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
       },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },
     ],
   },
   plugins: [
@@ -41,12 +49,15 @@ module.exports = {
     port: 8080,
     hot: true,
     proxy: {
-      '/': 'http://localhost:3000',
+      '/api': 'http://localhost:3000',
       secure: true,
     },
     static: {
       directory: path.join(__dirname, '/'),
       publicPath: '/',
     },
+  },
+  performance: {
+    hints: false,
   },
 };

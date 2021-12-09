@@ -4,9 +4,9 @@ const eventController = require('../controllers/eventController.js');
 const router = express.Router();
 
 // router to get data from yelp API, only respond to client with 3 results
-router.get('/search', eventController.getRestaurants, (req, res) =>
-  res.status(200).json(res.locals.searchResult)
-);
+router.post('/search', eventController.getRestaurants, (req, res) => {
+  res.status(200).json(res.locals.searchResults);
+});
 // router to get and display all data (all favorites) from our database
 router.get('/favorites', eventController.getFavorites, (req, res) =>
   res.status(200).json(res.locals.favorites)
