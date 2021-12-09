@@ -14,39 +14,39 @@ module.exports = {
     }),
   ],
   module: {
-      rules: [
-          {
-              test: /\.(jsx?)$/,
-              exclude: /node_modules/,
-              use: {
-                  loader: 'babel-loader',
-                  options: {
-                      presets: ['@babel/preset-env', '@babel/preset-react'],
-                    },
-                },
-            },
-            {
-                test: /\.css$/,
-                use: ['style-loader', 'css-loader'],
-            },
-        ],
-    },
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: path.join(__dirname, './client/index.html'),
-        }),
+    rules: [
+      {
+        test: /\.(jsx?)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+          },
+        },
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
     ],
-    devServer: {
-      compress: true,
-      port: 8080,
-      hot: true,
-      proxy: {
-        '/api': 'http://localhost:3000',
-        secure: true,
-      },
-      static: {
-        directory: path.join(__dirname, '/'),
-        publicPath: '/',
-      },
-    }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname, './client/index.html'),
+    }),
+  ],
+  devServer: {
+    compress: true,
+    port: 8080,
+    hot: true,
+    proxy: {
+      '/': 'http://localhost:3000',
+      secure: true,
+    },
+    static: {
+      directory: path.join(__dirname, '/'),
+      publicPath: '/',
+    },
+  },
 };
