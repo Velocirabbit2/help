@@ -1,6 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-// import styles from './client/assets/style.css';
-// import App from './App.js';
+// function makeSearchBar() {
+//     const searchBar = document.createElement("INPUT");
+//     searchBar.setAttribute("type", "text");
+//     searchBar.setAttribute("value", "Hello, Bryan!");
+//     document.body.appendChild(searchBar);
+// }
 
-ReactDOM.render(<h1>BRYAN! hi</h1>, document.getElementById('root'));
+document.addEventListener('DOMContentLoaded', () => {
+    const body = document.querySelector('#chicken');
+    // const board = document.querySelector('#board');
+
+  
+        new SearchBar(body);
+
+        
+    
+    
+    // const searchBar = new SearchBar(board);
+    // searchBar();
+    // new SearchBar(board);
+   //makeSearchBar(board);
+
+})
