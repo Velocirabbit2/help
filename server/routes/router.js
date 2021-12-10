@@ -18,7 +18,7 @@ router.post('/add', eventController.postFavorite, (req, res) =>
 
 // router to delete a favorite from the database
 router.delete(
-  '/delete',
+  '/delete/:id',
   eventController.deleteFavorite,
   eventController.getFavorites,
   (req, res) => res.status(200).json(res.locals.favorites)
