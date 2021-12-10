@@ -25,6 +25,7 @@ const favoritesSchema = new Schema({
   rating: { type: Number, require: true },
   price: { type: String, require: true },
   location: locationSchema,
+  url: { type: String, require: false },
 });
 
 module.exports = mongoose.model('Favorites', favoritesSchema);
