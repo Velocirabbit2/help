@@ -3,9 +3,7 @@ import React from 'react';
 const List = (props) => {
   return (
     <div className='list'>
-      <ul>
-        <ul>{props.favoritesList.name}</ul>
-      </ul>
+      <a href={props.favoritesList.url}>{props.favoritesList.name}</a>
     </div>
   );
 };

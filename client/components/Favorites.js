@@ -10,16 +10,33 @@ const Favorites = () => {
     axios.get('http://localhost:3000/api/favorites').then((res) => {
       setFavorite(res.data);
     });
-  }, []);
+  }, [allFavorites]);
+
+  const handleShowDelete = () => {
+    var x = document.getElementById('toggleList');
+    if (x.style.display === 'block') {
+      x.style.display = 'none';
+    } else {
+      x.style.display = 'block';
+    }
+  };
 
   return (
-    <div className='favoritesList'>
-      <ul>
-        <h2>Favorites:</h2>
+    <div id='favoritesList' className='favoritesList'>
+      <button
+        className='favorites'
+        onClick={() => {
+          handleShowDelete();
+        }}
+      >
+        Show Favorites
+      </button>
+
+      <div id='toggleList' className='toggleList'>
         {allFavorites.map((favorite, key) => {
           return <List key={key} favoritesList={favorite} />;
         })}
-      </ul>
+      </div>
     </div>
   );
 };

@@ -47,7 +47,7 @@ eventController.getFavorites = (req, res, next) => {
 
 // post method using async/await
 eventController.postFavorite = async (req, res, next) => {
-  const { id, name, image_url, rating, price, location } = req.body;
+  const { id, name, image_url, rating, price, location, url } = req.body;
   const newFav = new Favorites({
     id: id,
     name: name,
@@ -55,6 +55,7 @@ eventController.postFavorite = async (req, res, next) => {
     rating: rating,
     price: price,
     location: location,
+    url: url,
   });
   try {
     const result = await newFav.save();
@@ -69,6 +70,7 @@ eventController.postFavorite = async (req, res, next) => {
 };
 
 eventController.deleteFavorite = (req, res, next) => {
+  console.log('these are the params', req.params);
   const id = { id: req.params.id };
   Favorites.findOneAndDelete(id, (err, result) => {
     if (err) {

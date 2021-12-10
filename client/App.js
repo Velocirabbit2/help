@@ -38,7 +38,42 @@ const App = () => {
     });
   };
 
-  //
+  const handleAddToFavorites = (restObj) => {
+    axios.post('http://localhost:3000/api/add', restObj).then((res) => {
+      console.log(res);
+    });
+  };
+
+  if (threeOptions.length === 0) {
+    return (
+      <div>
+        <div>
+          <form>
+            <input
+              id='location'
+              key='location'
+              onChange={onChangeHandler}
+              value={addRestaurant.location}
+              placeholder='Ask Yelp for Help'
+            />
+          </form>
+          <button
+            className='search'
+            onClick={() => {
+              handleSearchLocation(addRestaurant);
+            }}
+          >
+            Yum
+          </button>
+        </div>
+        <div>
+          <div className='searchResults'>
+            <Board searchResults={threeOptions} />
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div>
@@ -49,7 +84,7 @@ const App = () => {
             key='location'
             onChange={onChangeHandler}
             value={addRestaurant.location}
-            placeholder='Type in a location...'
+            placeholder='Ask Yelp for Help'
           />
         </form>
         <button
@@ -58,15 +93,18 @@ const App = () => {
             handleSearchLocation(addRestaurant);
           }}
         >
-          Search
+          Again?
         </button>
+      </div>
+      <div className='favoritiesList'>
+        <Favorites />
       </div>
       <div>
         <div className='searchResults'>
-          <Board searchResults={threeOptions} />
-        </div>
-        <div className='favoritiesList'>
-          <Favorites />
+          <Board
+            searchResults={threeOptions}
+            addToFavorites={handleAddToFavorites}
+          />
         </div>
       </div>
     </div>
