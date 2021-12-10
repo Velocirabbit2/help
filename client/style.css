@@ -33,7 +33,6 @@ div.favoritesList {
   position: fixed;
   margin-top: 70px;
 }
-
 div.toggleList {
   display: none;
   text-align: left;
@@ -79,7 +78,6 @@ input {
   font-family: Arial;
   box-shadow: var(--shadow-elevation-medium);
 }
-
 button {
   color: #fff;
   width: 80px;
