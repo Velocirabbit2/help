@@ -44,6 +44,17 @@ const App = () => {
     });
   };
 
+  const handleDeleteFavorite = (id) => {
+    axios
+      .delete(`http://localhost:3000/api/delete/${id}`)
+      .then((res) => console.log(res))
+      .then(
+        axios.get('http://localhost:3000/api/favorites').then((res) => {
+          setFavorite(res.data);
+        })
+      );
+  };
+
   if (threeOptions.length === 0) {
     return (
       <div>
@@ -97,7 +108,7 @@ const App = () => {
         </button>
       </div>
       <div className='favoritiesList'>
-        <Favorites />
+        <Favorites deleteFavorite={handleDeleteFavorite} />
       </div>
       <div>
         <div className='searchResults'>

@@ -16,6 +16,11 @@ div {
   justify-content: left;
   align-items: left;
 }
+div.list {
+  margin-bottom: 10px;
+  justify-content: left;
+  align-items: left;
+}
 div.board {
   justify-content: left;
   align-items: top;
@@ -27,17 +32,16 @@ div.card {
 }
 div.favoritesList {
   text-align: left;
-  width: 150px;
+  width: 200px;
   margin-left: -180px;
   letter-spacing: 1px;
   position: fixed;
   margin-top: 70px;
 }
-
 div.toggleList {
   display: none;
   text-align: left;
-  width: 150px;
+  width: 200px;
   letter-spacing: 1px;
   position: fixed;
 }
@@ -79,7 +83,6 @@ input {
   font-family: Arial;
   box-shadow: var(--shadow-elevation-medium);
 }
-
 button {
   color: #fff;
   width: 80px;
@@ -106,7 +109,6 @@ button.heart {
   border: 0.5px solid #ff1a1a;
   border-radius: 3px;
   /* padding: 6.5px 15px; */
-  margin-left: 0px;
   align-items: center;
   text-align: center;
   letter-spacing: 1px;
@@ -119,6 +121,27 @@ button.heart:hover {
   border: 0.5px solid #ff1a1a;
   transition-duration: 0.5s;
   box-shadow: var(--shadow-elevation-high);
+}
+button.delete {
+  color: #ff1a1a;
+  width: 30px;
+  background-color: #fff;
+  border: 0.5px solid none;
+  border-radius: 0px;
+  padding: 2px 2px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  letter-spacing: 1px;
+  cursor: pointer;
+  font-family: Arial;
+  box-shadow: var(--shadow-elevation-medium);
+}
+button.delete:hover {
+  background-color: none;
+  border: 0.5px solid none;
+  transition-duration: 0.5s;
+  box-shadow: var(--shadow-elevation-medium);
 }
 button.favorites {
   color: #fff;
